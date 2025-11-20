@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillForge | Unlock Your Potential</title>
+    <style>
+        :root {
+            --primary: #00C2FF;
+            /* Cian Tecnológico */
+            --primary-dark: #009ecf;
+            --dark-bg: #0B1120;
+            /* Azul muy oscuro/Negro */
+            --card-bg: #151E32;
+            --text-light: #F8FAFC;
+            --text-gray: #94A3B8;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(11, 17, 32, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            color: var(--dark-bg);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a2744 0%, #0B1120 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: var(--dark-bg);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 194, 255, 0.4);
+        }
+
+        /* Features Grid */
+        .section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 3px solid var(--primary);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Methodology Strip */
+        .methodology {
+            background: #151E32;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .step {
+            max-width: 250px;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            line-height: 1;
+        }
+
+        .step h4 {
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        /* B2B Section */
+        .b2b-section {
+            background: linear-gradient(90deg, var(--primary) 0%, #009ecf 100%);
+            color: var(--dark-bg);
+            text-align: center;
+            border-radius: 20px;
+            margin: 50px 5%;
+            padding: 60px 20px;
+        }
+
+        .b2b-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .b2b-section button {
+            background: var(--dark-bg);
+            color: white;
+            margin-top: 20px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">SKILL<span>FORGE</span></div>
+        <button class="nav-btn">Soy Empresa</button>
+    </header>
+
+    <section class="hero">
+        <h1>No estudies software.<br><span>CONSTRÚYELO.</span></h1>
+        <p>La primera academia basada 100% en retos reales. Sin teoría de relleno. Aprende a programar resolviendo
+            problemas de la industria, tal como lo harás en tu primer trabajo.</p>
+        <button class="cta-button">Comenzar el Reto</button>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Unlock Your Potential</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">El "Mundo Real" no pide exámenes,<br>pide <span
+                style="color:var(--primary)">Resultados</span>.</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>💻 Retos Evolutivos</h3>
+                <p>Olvídate de los ejercicios aislados. Te entregamos un proyecto completo con Historias de Usuario
+                    reales. Tu misión: investigar, codificar y desplegar soluciones semana tras semana.</p>
+            </div>
+            <div class="card">
+                <h3>🧠 Just-in-Time Learning</h3>
+                <p>No te damos clases magistrales de 3 horas. Te damos el material exacto y puntual que necesitas para
+                    desbloquear el reto actual. Aprende a buscar y filtrar información como un Senior.</p>
+            </div>
+            <div class="card">
+                <h3>🔄 Feedback Síncrono</h3>
+                <p>Sesiones en vivo donde no vas a escuchar clase, vas a mostrar código. Revisamos tus avances,
+                    corregimos errores arquitectónicos y desbloqueamos tus dudas al instante.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section methodology">
+        <div class="step">
+            <div class="step-number">01</div>
+            <h4>El Briefing</h4>
+            <p>Recibes el reto y los requerimientos del cliente ficticio (simulando un entorno bancario/fintech).</p>
+        </div>
+        <div class="step">
+            <div class="step-number">02</div>
+            <h4>La Ejecución</h4>
+            <p>Investigas y construyes. Te enfrentas al código "sucio" y real. Te apoyamos con mentores.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">03</div>
+            <h4>El Code Review</h4>
+            <p>Recibes feedback duro y honesto para mejorar tu calidad, seguridad y buenas prácticas.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Habilidades que <span style="color:var(--primary)">Contratan</span></h2>
+        <div class="grid-container">
+            <div class="card" style="border-top-color: #fff;">
+                <h3>Mentalidad de Acero</h3>
+                <p>El desarrollo es frustrante. Te enseñamos a manejar la frustración, a no ahogarte en un vaso de agua
+                    y a tener mentalidad resolutiva.</p>
+            </div>
+            <div class="card" style="border-top-color: #fff;">
+                <h3>Interview Ready</h3>
+                <p>No solo sales sabiendo programar. Sales sabiendo cómo vender tu perfil, enfrentar pruebas técnicas y
+                    negociar tu valor.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="b2b-section">
+        <h2>¿Buscas talento productivo desde el Día 1?</h2>
+        <p>En SkillForge nuestros egresados ya han trabajado bajo metodologías ágiles, git flow y plazos reales.</p>
+        <button>Contactar Equipo Corporativo</button>
+    </div>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 20px; font-size: 1.2rem;">SKILL<span>FORGE</span></div>
+        <p>&copy; 2025 SkillForge Academy. Todos los derechos reservados.</p>
+        <p>Hecho con código real en Colombia 🇨🇴</p>
+    </footer>
+
+</body>
+
+</html>
